@@ -32,6 +32,7 @@ namespace _1_3
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             textsize = (int)nUpDown.Value;
+
             FontStyle stil = FontStyle.Regular;
 
             if (cbxBold.Checked)
@@ -48,7 +49,7 @@ namespace _1_3
             }
 
             
-            rtbx.Font = new Font("Arial",textsize,stil);
+            rtbx.Font = new Font(cbox.Text,textsize,stil);
             rtbx.ForeColor = color;
         }
 
@@ -56,7 +57,16 @@ namespace _1_3
         {
             foreach(FontFamily ff in fontfamilyArray)
             {
-                listBox1.Items.Add(ff.Name);
+                cbox.Items.Add(ff.Name);
+            }
+            nUpDown.Value = 12;
+        }
+
+        private void NUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if(nUpDown.Value == 0)
+            {
+                nUpDown.Value++;
             }
         }
     }

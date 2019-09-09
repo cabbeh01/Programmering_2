@@ -33,19 +33,20 @@
             this.cbxBold = new System.Windows.Forms.CheckBox();
             this.cbxItalic = new System.Windows.Forms.CheckBox();
             this.cbxUnderline = new System.Windows.Forms.CheckBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.nUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cDialog = new System.Windows.Forms.ColorDialog();
             this.pbxColor = new System.Windows.Forms.PictureBox();
+            this.cbox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxColor)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbx
             // 
+            this.rtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbx.Location = new System.Drawing.Point(12, 12);
             this.rtbx.Name = "rtbx";
             this.rtbx.Size = new System.Drawing.Size(301, 173);
@@ -96,20 +97,13 @@
             this.cbxUnderline.Text = "Understräck";
             this.cbxUnderline.UseVisualStyleBackColor = true;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(193, 220);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 30);
-            this.listBox1.TabIndex = 5;
-            // 
             // nUpDown
             // 
             this.nUpDown.Location = new System.Drawing.Point(113, 220);
             this.nUpDown.Name = "nUpDown";
             this.nUpDown.Size = new System.Drawing.Size(47, 20);
             this.nUpDown.TabIndex = 6;
+            this.nUpDown.ValueChanged += new System.EventHandler(this.NUpDown_ValueChanged);
             // 
             // label1
             // 
@@ -149,17 +143,25 @@
             this.pbxColor.TabStop = false;
             this.pbxColor.Click += new System.EventHandler(this.PbxColor_Click);
             // 
+            // cbox
+            // 
+            this.cbox.FormattingEnabled = true;
+            this.cbox.Location = new System.Drawing.Point(193, 219);
+            this.cbox.Name = "cbox";
+            this.cbox.Size = new System.Drawing.Size(121, 21);
+            this.cbox.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 302);
+            this.Controls.Add(this.cbox);
             this.Controls.Add(this.pbxColor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nUpDown);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.cbxUnderline);
             this.Controls.Add(this.cbxItalic);
             this.Controls.Add(this.cbxBold);
@@ -181,13 +183,13 @@
         private System.Windows.Forms.CheckBox cbxBold;
         private System.Windows.Forms.CheckBox cbxItalic;
         private System.Windows.Forms.CheckBox cbxUnderline;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.NumericUpDown nUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColorDialog cDialog;
         private System.Windows.Forms.PictureBox pbxColor;
+        private System.Windows.Forms.ComboBox cbox;
     }
 }
 
