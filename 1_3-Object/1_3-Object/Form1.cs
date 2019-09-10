@@ -24,6 +24,7 @@ namespace _1_3_Object
                 for (int c = 0; c < 5; c++)
                 {
                     bilder[r, c] = new PictureBox();
+                    //Bilden följer ej med i solutionen
                     bilder[r, c].BackgroundImage = Image.FromFile(@"C:\Users\cashen0116\Downloads\star.jpg");
                     bilder[r, c].Left = (50*c) + 0;
                     bilder[r, c].Width = 50;
