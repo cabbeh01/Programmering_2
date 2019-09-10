@@ -49,9 +49,6 @@ namespace _1_3_Object
             {
                 clickedflower.BorderStyle = BorderStyle.FixedSingle;
             }
-            
-
-            
         }
     }
 }
