@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxKund = new System.Windows.Forms.TextBox();
+            this.tbxDestination = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxAntalDagar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBoka = new System.Windows.Forms.Button();
             this.gbxSokKund = new System.Windows.Forms.GroupBox();
-            this.tbx = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnSok = new System.Windows.Forms.Button();
             this.lbxSokt = new System.Windows.Forms.ListBox();
+            this.btnSok = new System.Windows.Forms.Button();
+            this.tbxSokKund = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbxSokKund.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,19 +52,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Kund";
             // 
-            // textBox1
+            // tbxKund
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbxKund.Location = new System.Drawing.Point(91, 25);
+            this.tbxKund.Name = "tbxKund";
+            this.tbxKund.Size = new System.Drawing.Size(100, 20);
+            this.tbxKund.TabIndex = 1;
             // 
-            // textBox2
+            // tbxDestination
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.tbxDestination.Location = new System.Drawing.Point(91, 62);
+            this.tbxDestination.Name = "tbxDestination";
+            this.tbxDestination.Size = new System.Drawing.Size(100, 20);
+            this.tbxDestination.TabIndex = 3;
             // 
             // label2
             // 
@@ -75,12 +75,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Destination";
             // 
-            // textBox3
+            // tbxAntalDagar
             // 
-            this.textBox3.Location = new System.Drawing.Point(91, 101);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.tbxAntalDagar.Location = new System.Drawing.Point(91, 101);
+            this.tbxAntalDagar.Name = "tbxAntalDagar";
+            this.tbxAntalDagar.Size = new System.Drawing.Size(100, 20);
+            this.tbxAntalDagar.TabIndex = 5;
             // 
             // label3
             // 
@@ -99,12 +99,13 @@
             this.btnBoka.TabIndex = 6;
             this.btnBoka.Text = "Boka";
             this.btnBoka.UseVisualStyleBackColor = true;
+            this.btnBoka.Click += new System.EventHandler(this.BtnBoka_Click);
             // 
             // gbxSokKund
             // 
             this.gbxSokKund.Controls.Add(this.lbxSokt);
             this.gbxSokKund.Controls.Add(this.btnSok);
-            this.gbxSokKund.Controls.Add(this.tbx);
+            this.gbxSokKund.Controls.Add(this.tbxSokKund);
             this.gbxSokKund.Controls.Add(this.label4);
             this.gbxSokKund.Location = new System.Drawing.Point(27, 149);
             this.gbxSokKund.Name = "gbxSokKund";
@@ -112,31 +113,6 @@
             this.gbxSokKund.TabIndex = 7;
             this.gbxSokKund.TabStop = false;
             this.gbxSokKund.Text = "Sök kund";
-            // 
-            // tbx
-            // 
-            this.tbx.Location = new System.Drawing.Point(64, 19);
-            this.tbx.Name = "tbx";
-            this.tbx.Size = new System.Drawing.Size(100, 20);
-            this.tbx.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "label4";
-            // 
-            // btnSok
-            // 
-            this.btnSok.Location = new System.Drawing.Point(170, 17);
-            this.btnSok.Name = "btnSok";
-            this.btnSok.Size = new System.Drawing.Size(43, 23);
-            this.btnSok.TabIndex = 8;
-            this.btnSok.Text = "Sök";
-            this.btnSok.UseVisualStyleBackColor = true;
             // 
             // lbxSokt
             // 
@@ -146,6 +122,32 @@
             this.lbxSokt.Size = new System.Drawing.Size(172, 121);
             this.lbxSokt.TabIndex = 8;
             // 
+            // btnSok
+            // 
+            this.btnSok.Location = new System.Drawing.Point(170, 17);
+            this.btnSok.Name = "btnSok";
+            this.btnSok.Size = new System.Drawing.Size(43, 23);
+            this.btnSok.TabIndex = 8;
+            this.btnSok.Text = "Sök";
+            this.btnSok.UseVisualStyleBackColor = true;
+            this.btnSok.Click += new System.EventHandler(this.BtnSok_Click);
+            // 
+            // tbxSokKund
+            // 
+            this.tbxSokKund.Location = new System.Drawing.Point(64, 19);
+            this.tbxSokKund.Name = "tbxSokKund";
+            this.tbxSokKund.Size = new System.Drawing.Size(100, 20);
+            this.tbxSokKund.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Kund";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,11 +155,11 @@
             this.ClientSize = new System.Drawing.Size(297, 361);
             this.Controls.Add(this.gbxSokKund);
             this.Controls.Add(this.btnBoka);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbxAntalDagar);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbxDestination);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxKund);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -171,16 +173,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxKund;
+        private System.Windows.Forms.TextBox tbxDestination;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbxAntalDagar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBoka;
         private System.Windows.Forms.GroupBox gbxSokKund;
         private System.Windows.Forms.ListBox lbxSokt;
         private System.Windows.Forms.Button btnSok;
-        private System.Windows.Forms.TextBox tbx;
+        private System.Windows.Forms.TextBox tbxSokKund;
         private System.Windows.Forms.Label label4;
     }
 }
