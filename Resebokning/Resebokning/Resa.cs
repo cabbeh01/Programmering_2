@@ -8,19 +8,25 @@ namespace Resebokning
 {
     class Resa
     {
-        public string name = "";
-        public string destination = "";
-        public short days;
+        string name;
+        string destination;
+        short days;
 
-        Resa(string Name, string Destination, short Days)
+        public Resa(string Name, string Destination, short Days)
         {
             this.name = Name;
             this.destination = Destination;
             this.days = Days;
         }
 
+        public override string ToString()
+        {
+            return this.name +  " | " + this.destination + ": " + this.days;
+        }
 
-        
-
+        public string getName()
+        {
+            return name;
+        }
     }
 }
