@@ -58,6 +58,10 @@ namespace Skyttetavling
             {
                 MessageBox.Show("Du måste mata in ett tal!", "Varning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            if(lbxOutput.Items.Count == 0)
+            {
+                MessageBox.Show("Kunde inte hitta någon som fick den poängen!");
+            }
             ClearValueSok();
 
         }
