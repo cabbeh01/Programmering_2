@@ -24,6 +24,7 @@ namespace Resebokning
             Resa kund = new Resa(tbxKund.Text, tbxDestination.Text, short.Parse(tbxAntalDagar.Text));
             reseLista.Add(kund);
             UpdateValues();
+            MessageBox.Show("Resan bokad");
         }
 
         private void BtnSok_Click(object sender, EventArgs e)
