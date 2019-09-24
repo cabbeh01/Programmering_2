@@ -44,13 +44,13 @@ namespace Loplogg
 
         public override string ToString()
         {
-            if (this._switcher)
+            if (!this._switcher)
             {
-                return this._distance + "";
+                return this._distance/(this._time / 60)+ " km/h";
             }
             else
             {
-                return this._time + "";
+                return this._time + "min";
             }
         }
 
