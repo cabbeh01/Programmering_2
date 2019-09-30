@@ -22,6 +22,7 @@ namespace Styrketraning
             try
             {
                 Traning.Traningar.Add(new Traning(tbxOvning.Text, short.Parse(tbxSet.Text), short.Parse(tbxRep.Text), short.Parse(tbxVikt.Text)));
+                MessageBox.Show("Övningen sparad!");
             }
             catch(Exception ex)
             {
@@ -34,7 +35,7 @@ namespace Styrketraning
         {
             foreach(Traning r in Traning.Traningar)
             {
-                if(tbxOvningSok.Text == r.Ovning)
+                if(tbxOvningSok.Text.ToLower() == r.Ovning.ToLower())
                 {
                     tbxShow.Text = r.ViktCalc.ToString();
                 }
