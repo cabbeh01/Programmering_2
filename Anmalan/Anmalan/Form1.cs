@@ -102,12 +102,14 @@ namespace Anmalan
 
         private void BtnSok_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void LbxResult_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            lbxResult.Items.Clear();
+            foreach (Anmalan A in Anmalan.AnmalanAlla)
+            {
+                if (A.ToString().ToLower().Contains(tbxSok.Text.ToLower()))
+                {
+                    lbxResult.Items.Add(A);
+                }
+            }
         }
 
         private void UpdateList()

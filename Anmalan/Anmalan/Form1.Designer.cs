@@ -48,7 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSok = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbxSok = new System.Windows.Forms.TextBox();
             this.lds = new System.Windows.Forms.Label();
             this.lbxResult = new System.Windows.Forms.ListBox();
             this.btnPick = new System.Windows.Forms.Button();
@@ -239,7 +239,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnSok);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.tbxSok);
             this.groupBox2.Controls.Add(this.lds);
             this.groupBox2.Location = new System.Drawing.Point(12, 298);
             this.groupBox2.Name = "groupBox2";
@@ -258,12 +258,12 @@
             this.btnSok.UseVisualStyleBackColor = true;
             this.btnSok.Click += new System.EventHandler(this.BtnSok_Click);
             // 
-            // textBox7
+            // tbxSok
             // 
-            this.textBox7.Location = new System.Drawing.Point(61, 49);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(291, 20);
-            this.textBox7.TabIndex = 16;
+            this.tbxSok.Location = new System.Drawing.Point(61, 49);
+            this.tbxSok.Name = "tbxSok";
+            this.tbxSok.Size = new System.Drawing.Size(291, 20);
+            this.tbxSok.TabIndex = 16;
             // 
             // lds
             // 
@@ -281,7 +281,6 @@
             this.lbxResult.Name = "lbxResult";
             this.lbxResult.Size = new System.Drawing.Size(272, 342);
             this.lbxResult.TabIndex = 2;
-            this.lbxResult.SelectedIndexChanged += new System.EventHandler(this.LbxResult_SelectedIndexChanged);
             // 
             // btnPick
             // 
@@ -354,7 +353,7 @@
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.TextBox tbxCrime;
         private System.Windows.Forms.Button btnSok;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbxSok;
         private System.Windows.Forms.Label lds;
         private System.Windows.Forms.ListBox lbxResult;
         private System.Windows.Forms.Button btnPick;
