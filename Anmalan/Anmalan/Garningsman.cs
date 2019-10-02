@@ -86,6 +86,8 @@ namespace Anmalan
 
         void GetGender()
         {
+
+            //Ett bättre alternativ hade varit ifall jag använde enumerationer!
             try
             {
                 switch (this._gender)
