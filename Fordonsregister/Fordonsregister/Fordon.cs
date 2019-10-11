@@ -54,26 +54,28 @@ namespace Fordonsregister
         }
         public static bool AcceptReg(string Reg)
         {
+            int i = 0;
             if(Reg.Length == 6)
             {
-                for (int i = 0; i < Reg.Length; i++)
+                foreach(char ch in Reg)
                 {
                     if (i <= 2)
                     {
-                        if ((int.TryParse(Reg[i].ToString(), out int r)))
+                        if (Char.IsLetter(ch))
                         {
                             return false;
                         }
                     }
                     if (i > 2)
                     {
-                        if (!(int.TryParse(Reg[i].ToString(), out int r)))
+                        if (Char.IsDigit(ch) && Char.IsSymbol(ch))
                         {
                             return false;
                         }
 
                     }
-
+                    Debug.WriteLine(i + "  " + ch.ToString());
+                    i++;
                 }
                 return true;
                 

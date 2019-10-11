@@ -41,9 +41,9 @@
             this.lbxOutput = new System.Windows.Forms.ListBox();
             this.btnRegistration = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbnAll = new System.Windows.Forms.RadioButton();
-            this.rbnCar = new System.Windows.Forms.RadioButton();
             this.rbnMC = new System.Windows.Forms.RadioButton();
+            this.rbnCar = new System.Windows.Forms.RadioButton();
+            this.rbnAll = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,17 +164,18 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Visa";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
-            // rbnAll
+            // rbnMC
             // 
-            this.rbnAll.AutoSize = true;
-            this.rbnAll.Location = new System.Drawing.Point(6, 19);
-            this.rbnAll.Name = "rbnAll";
-            this.rbnAll.Size = new System.Drawing.Size(42, 17);
-            this.rbnAll.TabIndex = 0;
-            this.rbnAll.TabStop = true;
-            this.rbnAll.Text = "Alla";
-            this.rbnAll.UseVisualStyleBackColor = true;
+            this.rbnMC.AutoSize = true;
+            this.rbnMC.Location = new System.Drawing.Point(105, 19);
+            this.rbnMC.Name = "rbnMC";
+            this.rbnMC.Size = new System.Drawing.Size(41, 17);
+            this.rbnMC.TabIndex = 2;
+            this.rbnMC.TabStop = true;
+            this.rbnMC.Text = "MC";
+            this.rbnMC.UseVisualStyleBackColor = true;
             // 
             // rbnCar
             // 
@@ -187,16 +188,16 @@
             this.rbnCar.Text = "Bilar";
             this.rbnCar.UseVisualStyleBackColor = true;
             // 
-            // rbnMC
+            // rbnAll
             // 
-            this.rbnMC.AutoSize = true;
-            this.rbnMC.Location = new System.Drawing.Point(105, 19);
-            this.rbnMC.Name = "rbnMC";
-            this.rbnMC.Size = new System.Drawing.Size(41, 17);
-            this.rbnMC.TabIndex = 2;
-            this.rbnMC.TabStop = true;
-            this.rbnMC.Text = "MC";
-            this.rbnMC.UseVisualStyleBackColor = true;
+            this.rbnAll.AutoSize = true;
+            this.rbnAll.Location = new System.Drawing.Point(6, 19);
+            this.rbnAll.Name = "rbnAll";
+            this.rbnAll.Size = new System.Drawing.Size(42, 17);
+            this.rbnAll.TabIndex = 0;
+            this.rbnAll.TabStop = true;
+            this.rbnAll.Text = "Alla";
+            this.rbnAll.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
