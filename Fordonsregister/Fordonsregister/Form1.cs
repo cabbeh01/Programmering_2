@@ -28,6 +28,10 @@ namespace Fordonsregister
                     {
                         try
                         {
+                            //int t = cbxType.SelectedIndex;
+                            //Fordon.AllFordon.Add(new Fordon(tbxRegnr.Text, tbxBrand.Text, tbxModel.Text, (Fordon.Vehicle)t));
+
+
                             Fordon.Vehicle a = new Fordon.Vehicle();
                             if (cbxType.SelectedItem.ToString() == "Bil")
                             {
