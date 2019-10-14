@@ -164,7 +164,6 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Visa";
-            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // rbnMC
             // 
@@ -176,6 +175,7 @@
             this.rbnMC.TabStop = true;
             this.rbnMC.Text = "MC";
             this.rbnMC.UseVisualStyleBackColor = true;
+            this.rbnMC.CheckedChanged += new System.EventHandler(this.RbnMC_CheckedChanged);
             // 
             // rbnCar
             // 
@@ -187,6 +187,7 @@
             this.rbnCar.TabStop = true;
             this.rbnCar.Text = "Bilar";
             this.rbnCar.UseVisualStyleBackColor = true;
+            this.rbnCar.CheckedChanged += new System.EventHandler(this.RbnCar_CheckedChanged);
             // 
             // rbnAll
             // 
@@ -198,6 +199,7 @@
             this.rbnAll.TabStop = true;
             this.rbnAll.Text = "Alla";
             this.rbnAll.UseVisualStyleBackColor = true;
+            this.rbnAll.CheckedChanged += new System.EventHandler(this.RbnAll_CheckedChanged);
             // 
             // Form1
             // 

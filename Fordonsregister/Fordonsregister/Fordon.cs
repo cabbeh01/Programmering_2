@@ -63,18 +63,40 @@ namespace Fordonsregister
                     {
                         if (Char.IsLetter(ch))
                         {
-                            return false;
+                            
                         }
-                    }
-                    if (i > 2)
-                    {
-                        if (Char.IsDigit(ch) && Char.IsSymbol(ch))
+                        else
                         {
                             return false;
                         }
-
+                        
                     }
-                    Debug.WriteLine(i + "  " + ch.ToString());
+                    else if (i > 2 && i<=4)
+                    {
+                        if (Char.IsDigit(ch))
+                        {
+                           
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if (i > 4)
+                    {
+                        if (Char.IsLetterOrDigit(ch))
+                        {
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
                     i++;
                 }
                 return true;
