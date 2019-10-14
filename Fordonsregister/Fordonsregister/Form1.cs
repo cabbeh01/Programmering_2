@@ -40,7 +40,8 @@ namespace Fordonsregister
                             }
 
                             Fordon.AllFordon.Add(new Fordon(tbxRegnr.Text, tbxBrand.Text, tbxModel.Text, a));
-                            UpdateTable();
+                            MessageBox.Show("Fordornet har nu lagts till!");
+                            UpdateListRadiobutton();
                             ClearTextbox();
                         }
                         catch
@@ -78,40 +79,17 @@ namespace Fordonsregister
 
         private void RbnAll_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbnAll.Checked)
-            {
-                UpdateTable();
-            }
+            UpdateListRadiobutton();
         }
 
         private void RbnCar_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbnCar.Checked)
-            {
-                lbxOutput.Items.Clear();
-                foreach (Fordon d in Fordon.AllFordon)
-                {
-                    if (d.Type == Fordon.Vehicle.Bil)
-                    {
-                        lbxOutput.Items.Add(d);
-                    }
-                }
-            }
+            UpdateListRadiobutton();
         }
 
         private void RbnMC_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbnMC.Checked)
-            {
-                lbxOutput.Items.Clear();
-                foreach (Fordon d in Fordon.AllFordon)
-                {
-                    if (d.Type == Fordon.Vehicle.MC)
-                    {
-                        lbxOutput.Items.Add(d);
-                    }
-                }
-            }
+            UpdateListRadiobutton();
         }
 
         private void Startup()
@@ -125,6 +103,36 @@ namespace Fordonsregister
             tbxBrand.Text = "";
             tbxModel.Text = "";
             tbxRegnr.Text = "";
+        }
+
+        private void UpdateListRadiobutton()
+        {
+            if (rbnAll.Checked)
+            {
+                UpdateTable();
+            }
+            else if (rbnCar.Checked)
+            {
+                lbxOutput.Items.Clear();
+                foreach (Fordon d in Fordon.AllFordon)
+                {
+                    if (d.Type == Fordon.Vehicle.Bil)
+                    {
+                        lbxOutput.Items.Add(d);
+                    }
+                }
+            }
+            else if (rbnMC.Checked)
+            {
+                lbxOutput.Items.Clear();
+                foreach (Fordon d in Fordon.AllFordon)
+                {
+                    if (d.Type == Fordon.Vehicle.MC)
+                    {
+                        lbxOutput.Items.Add(d);
+                    }
+                }
+            }
         }
     }
 }

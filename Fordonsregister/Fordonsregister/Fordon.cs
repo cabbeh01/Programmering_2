@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Fordonsregister
 {
@@ -98,6 +99,15 @@ namespace Fordonsregister
                         return false;
                     }
                     i++;
+                }
+
+                foreach(Fordon a in AllFordon)
+                {
+                    if(a.RegNummer == Reg)
+                    {
+                        MessageBox.Show("Du kan inte skriva in samma regnummer igen!");
+                        return false;
+                    }
                 }
                 return true;
                 
