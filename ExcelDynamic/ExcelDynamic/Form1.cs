@@ -15,6 +15,8 @@ namespace ExcelDynamic
     {
         Excel.Application excel;
         Excel.Worksheet worksheet;
+        Excel.Range[]  cell = new Excel.Range[3];
+        dynamic[] temp = new dynamic[3];
         public Form1()
         {
             InitializeComponent();
@@ -31,8 +33,54 @@ namespace ExcelDynamic
 
         private void BtnExport_Click(object sender, EventArgs e)
         {
-            Excel.Range cell = worksheet.Cells[int.Parse(tbxRow.Text), "A"];
-            cell.Value = tbxName.Text;
+            for(int i = 0; i<cell.Length; i++)
+            {
+                cell[i] = worksheet.Cells[int.Parse(tbxRow.Text), i+1];
+            }
+
+            cell[0].Value = tbxName.Text;
+            cell[1].Value = tbxClass.Text;
+            cell[2].Value = tbxCourse.Text;
+            ClearValues();
         }
+
+        private void BtnImport_Click(object sender, EventArgs e)
+        {
+            ClearValues();
+            for (int i = 0; i < cell.Length; i++)
+            {
+                cell[i] = worksheet.Cells[int.Parse(tbxRow.Text), i + 1];
+            }
+
+            try
+            {
+                temp[0] = cell[0].Value;
+                temp[1] = cell[1].Value;
+                temp[2] = cell[2].Value;
+
+                tbxName.AppendText(temp[0].ToString());
+                tbxClass.AppendText(temp[1].ToString());
+                tbxCourse.AppendText(temp[2].ToString());
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show("Skriv in ett värde");
+            }
+            
+        }
+
+        private void ClearValues()
+        {
+            tbxName.Clear();
+            tbxClass.Clear();
+            tbxCourse.Clear();
+        }
+
+        private void BtnSaveClose_Click(object sender, EventArgs e)
+        {
+            worksheet.SaveAs("Test.xlsx");
+            excel.Quit();
+        }
+
     }
 }

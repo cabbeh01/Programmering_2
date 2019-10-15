@@ -134,6 +134,7 @@
             this.btnImport.TabIndex = 10;
             this.btnImport.Text = "Importera";
             this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.BtnImport_Click);
             // 
             // btnSaveClose
             // 
@@ -143,6 +144,7 @@
             this.btnSaveClose.TabIndex = 11;
             this.btnSaveClose.Text = "Spara och Stäng";
             this.btnSaveClose.UseVisualStyleBackColor = true;
+            this.btnSaveClose.Click += new System.EventHandler(this.BtnSaveClose_Click);
             // 
             // Form1
             // 
