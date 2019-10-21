@@ -43,7 +43,7 @@ namespace Mediabiblioteket
         {
             try
             {
-                if (String.IsNullOrWhiteSpace(tbxTitleAudio.Text))
+                if (!String.IsNullOrWhiteSpace(tbxTitleAudio.Text))
                 {
                     AudioClip tempAudio = new AudioClip(tbxTitleAudio.Text, int.Parse(tbxPlaytimeAudio.Text));
                     Media.AllMedia.Add(tempAudio);
@@ -116,6 +116,45 @@ namespace Mediabiblioteket
         {
             tbxPlaytimeAudio.Clear();
             tbxTitleAudio.Clear();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            Media.AllMedia.RemoveAt(lbxOut.SelectedIndex);
+            UpdateTable();
+            if (lbxOut.Items.Count == 0)
+            {
+                btnDelete.Enabled = false;
+            }
+        }
+
+        private void LbxOut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            Media m = lbxOut.SelectedItem as Media;
+            if(m is Bok)
+            {
+                Bok b = m as Bok;
+                tbxTitleBook.Text = b.Title;
+                tbxPagesBook.Text = b.Pages.ToString();
+            }
+            else if (m is AudioClip)
+            {
+                AudioClip b = m as AudioClip;
+                tbxTitleAudio.Text = b.Title;
+                tbxPagesBook.Text = b.Pages.ToString();
+            }
+            else if (m is Movie)
+            {
+                Movie b = m as Movie;
+                tbxTitleBook.Text = b.Title;
+                tbxPagesBook.Text = b.Pages.ToString();
+            }
         }
     }
 }

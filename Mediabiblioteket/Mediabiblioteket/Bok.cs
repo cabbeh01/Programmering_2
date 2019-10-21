@@ -20,5 +20,13 @@ namespace Mediabiblioteket
         {
             return $"[Bok] {_title}: {_pages} sidor";
         }
+
+        public int Pages
+        {
+            get
+            {
+                return this._pages;
+            }
+        }
     }
 }

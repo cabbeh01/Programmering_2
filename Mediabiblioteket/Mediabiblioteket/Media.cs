@@ -17,5 +17,12 @@ namespace Mediabiblioteket
             this._title = title;
         }
 
+        public string Title
+        {
+            get
+            {
+                return this._title;
+            }
+        }
     }
 }

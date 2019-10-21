@@ -19,5 +19,13 @@ namespace Mediabiblioteket
         {
             return $"[Film] {_title}: {_playTime} minuter, {_resolution}";
         }
+
+        public string Resolution
+        {
+            get
+            {
+                return this._resolution;
+            }
+        }
     }
 }

@@ -19,5 +19,13 @@ namespace Mediabiblioteket
         {
             return $"[Ljudfil] {_title}: {_playTime} minuter";
         }
+
+        public int Playtime
+        {
+            get
+            {
+                return this._playTime;
+            }
+        }
     }
 }
