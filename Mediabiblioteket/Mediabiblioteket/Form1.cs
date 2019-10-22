@@ -12,6 +12,7 @@ namespace Mediabiblioteket
 {
     public partial class Form1 : Form
     {
+        int id = 0;
         public Form1()
         {
             InitializeComponent();
@@ -147,13 +148,14 @@ namespace Mediabiblioteket
             {
                 AudioClip b = m as AudioClip;
                 tbxTitleAudio.Text = b.Title;
-                tbxPagesBook.Text = b.Pages.ToString();
+                tbxPlaytimeAudio.Text = b.Playtime.ToString();
             }
             else if (m is Movie)
             {
                 Movie b = m as Movie;
                 tbxTitleBook.Text = b.Title;
-                tbxPagesBook.Text = b.Pages.ToString();
+                tbxPlaytimeMovie.Text = b.Playtime.ToString();
+                tbxResolutionMovie.Text = b.Resolution.ToString();
             }
         }
     }
