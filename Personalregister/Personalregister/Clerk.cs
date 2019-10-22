@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 
 namespace Personalregister
 {
-    class Vender : Employed
+    class Clerk : Employed
     {
-        double _provision;
-        double _sales;
+        double _income;
 
-        public Vender(string name, double provision, double sales) : base(name)
+        public Clerk(string name, double income): base(name)
         {
-            this._provision = provision;
-            this._sales = sales;
+            this._income = income;
         }
 
         public override double CalculateIncome()
         {
-            return _sales * (_provision / 100);
+            return _income;
         }
 
         public override string ToString()
         {
-            return $"{this.Name}(Säljare)";
+            return $"{this.Name}(Kontorist)";
         }
         public override string PrintWithSalary(int income)
         {
-            return $"{this.Name}(Säljare): {income}";
+            return $"{this.Name}(Kontorist): {income}";
         }
     }
 }

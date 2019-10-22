@@ -26,10 +26,14 @@ namespace Personalregister
         {
             return 0;
         }
+        public virtual string PrintWithSalary(int income)
+        {
+            return "" + income*0;
+        }
 
         public override string ToString()
         {
-            return base.ToString();
+            return "Du är anställd och inget mer!";
         }
     }
 }
