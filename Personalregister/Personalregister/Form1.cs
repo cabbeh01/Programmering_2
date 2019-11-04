@@ -36,7 +36,7 @@ namespace Personalregister
             }
             catch
             {
-
+                MessageBox.Show("Vänligen kontrollera dina värden");
             }
         }
 
@@ -58,7 +58,7 @@ namespace Personalregister
             }
             catch
             {
-
+                MessageBox.Show("Vänligen kontrollera dina värden");
             }
         }
 
@@ -80,13 +80,13 @@ namespace Personalregister
             }
             catch
             {
-
+                MessageBox.Show("Vänligen kontrollera dina värden");
             }
         }
 
         private void BtnCalculateIncome_Click(object sender, EventArgs e)
         {
-
+            tbxTotalSalary.Text = $"{CalculateTotalIncome()} kr";
         }
 
         private void UpdateRegister()
@@ -96,6 +96,7 @@ namespace Personalregister
             {
                 lbxRegister.Items.Add(A);
             }
+            ClearTextboxes();
         }
         private void UpdatePayouts()
         {
@@ -106,9 +107,26 @@ namespace Personalregister
             }
         }
 
-        private double Calculate TotalIncome()
+        private int CalculateTotalIncome()
         {
-            return 0;
+            int totalIncome = 0;
+            foreach (Employed A in Employees)
+            {
+                totalIncome += (int)A.CalculateIncome();
+            }
+            return totalIncome;
+        }
+
+        private void ClearTextboxes()
+        {
+            tbxHourlyConsultant.Clear();
+            tbxIncomeClerk.Clear();
+            tbxNameClerk.Clear();
+            tbxNameConsultant.Clear();
+            tbxNameVender.Clear();
+            tbxProvisionVender.Clear();
+            tbxSalesVender.Clear();
+            tbxTimeWorkedConsultant.Clear();
         }
     }
 }

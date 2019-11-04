@@ -28,7 +28,7 @@ namespace Personalregister
         }
         public virtual string PrintWithSalary(int income)
         {
-            return "" + income*0;
+            return $"{income * 0}";
         }
 
         public override string ToString()
