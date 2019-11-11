@@ -11,10 +11,13 @@ namespace Banken
         private double _creditLimit;
 
 
-
+        public LoanAccount(string SocialNumber, double Balance, double Rate, double creditLimit) : base(SocialNumber, Balance, Rate)
+        {
+            this._creditLimit = creditLimit;
+        }
         public override bool Withdraw(double amount)
         {
-            if(amount < _creditLimit)
+            if(amount < _creditLimit && amount > 0)
             {
                 return true;
             }
@@ -26,7 +29,13 @@ namespace Banken
 
         public override double CalculateRate()
         {
-            return 2;
+            return (1-this._rate) * this._balance;
+        }
+
+
+        public override string ToString()
+        {
+            return $"Lånekonto {this._socialNumber}: {this._balance}";
         }
     }
 }

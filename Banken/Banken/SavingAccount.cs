@@ -8,14 +8,31 @@ namespace Banken
 {
     class SavingAccount : BankAccount
     {
+        public SavingAccount(string SocialNumber, double Balance, double Rate) : base(SocialNumber, Balance, Rate)
+        {
+
+        }
         public override bool Withdraw(double amount)
         {
-            return true;
+            if (amount <= this._balance && amount >0)
+            {
+                this._balance -= amount;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override double CalculateRate()
         {
-            return 2;
+            return (1 + this._rate) * this._balance;
+        }
+
+        public override string ToString()
+        {
+            return $"Sparkonto {this._socialNumber}: {this._balance}";
         }
     }
 }

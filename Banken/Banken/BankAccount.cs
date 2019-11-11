@@ -25,7 +25,7 @@ namespace Banken
 
         public void Deposit(double amount)
         {
-
+            this._balance += amount;
         }
         public virtual bool Withdraw(double amount)
         {
@@ -39,7 +39,7 @@ namespace Banken
 
         public override string ToString()
         {
-            return "";
+            return "BankAccount";
         }
     }
 }
