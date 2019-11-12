@@ -18,9 +18,16 @@ namespace Banken
             this._balance = Balance;
             this._rate = Rate;
         }
-        public double Balance()
+        public double Balance
         {
-            return _balance;
+            get
+            {
+                return this._balance;
+            }
+            set
+            {
+                this._balance = value;
+            }
         }
 
         public void Deposit(double amount)

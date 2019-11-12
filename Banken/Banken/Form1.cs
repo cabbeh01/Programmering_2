@@ -20,28 +20,43 @@ namespace Banken
 
         private void BtnDeposit_Click(object sender, EventArgs e)
         {
-            double amount = double.Parse(tbxAmount.Text);
+            try
+            {
+                double amount = double.Parse(tbxAmount.Text);
+                int index = lbxShow.SelectedIndex;
 
-            int index = lbxShow.SelectedIndex;
-
-            b.ListBankAccounts[index].Deposit(amount);
-            UpdateList();
+                b.ListBankAccounts[index].Deposit(amount);
+                UpdateList();
+            }
+            catch
+            {
+                MessageBox.Show("Du måste välja ett konto!");
+            }
+            
 
         }
 
         private void BtnWithdraw_Click(object sender, EventArgs e)
         {
-            double amount = double.Parse(tbxAmount.Text);
-
-            int index = lbxShow.SelectedIndex;
-
-            if (b.ListBankAccounts[index].Withdraw(amount)) {
-                UpdateList();
-            }
-            else
+            try
             {
-                MessageBox.Show("Det gick inte att ta ut så mycket!");
+                double amount = double.Parse(tbxAmount.Text);
+
+                int index = lbxShow.SelectedIndex;
+
+                if (b.ListBankAccounts[index].Withdraw(amount))
+                {
+                    UpdateList();
+                }
+                else
+                {
+                    MessageBox.Show("Det gick inte att ta ut så mycket!");
+                }
             }
+            catch{
+                MessageBox.Show("Error 12");
+            }
+            
             
         }
 
@@ -80,7 +95,9 @@ namespace Banken
         {
             foreach (BankAccount bA in b.ListBankAccounts)
             {
-                bA.Balance = bA.CalculateRate();
+                double temp = bA.Balance;
+                double newBlance = temp - bA.CalculateRate();
+                bA.Balance = newBlance;
             }
             UpdateList();
         }
