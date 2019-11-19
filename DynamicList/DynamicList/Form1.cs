@@ -12,7 +12,8 @@ namespace DynamicList
 {
     public partial class Form1 : Form
     {
-        Samling<int> nummer = new Samling<int>();
+        //Samling<int> nummer = new Samling<int>();
+        Mangd<int> nummer = new Mangd<int>();
         Random r = new Random();
         public Form1()
         {
