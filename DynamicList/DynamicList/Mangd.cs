@@ -14,11 +14,8 @@ namespace DynamicList
             {
                 return;
             }
-            else if (antal + 1 > längd)
-            {
-                Expandera(1 + buffert);
-            }
-            lista[antal++] = e;
+            base.Läggtill(e);
+
         }
     }
 }
