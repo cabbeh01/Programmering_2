@@ -60,6 +60,15 @@ namespace DynamicList
             lista[antal++] = e;
         }
 
+        public void Läggtill(Samling<T> s)
+        {
+            for(int i = 0; i < s.antal; i++)
+            {
+                Läggtill(s.ElementFrån(i));
+            }
+            
+        }
+
         public T TaBort(int index)
         {
             T temp = lista[index];

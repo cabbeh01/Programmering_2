@@ -47,7 +47,7 @@ namespace DynamicList
             if(nummer.Sök(int.Parse(tbxSok.Text)) != -1)
             {
                 int i = nummer.Sök(int.Parse(tbxSok.Text));
-                MessageBox.Show(i.ToString());
+                MessageBox.Show($"Hittades på position {i.ToString()}");
             }
             else
             {
