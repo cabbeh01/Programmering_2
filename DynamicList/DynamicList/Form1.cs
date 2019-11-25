@@ -12,7 +12,8 @@ namespace DynamicList
 {
     public partial class Form1 : Form
     {
-        Samling<int> nummer = new Samling<int>();
+        //Samling<int> nummer = new Samling<int>();
+        Mangd<int> nummer = new Mangd<int>();
         Random r = new Random();
         public Form1()
         {
@@ -47,7 +48,7 @@ namespace DynamicList
             if(nummer.Sök(int.Parse(tbxSok.Text)) != -1)
             {
                 int i = nummer.Sök(int.Parse(tbxSok.Text));
-                MessageBox.Show(i.ToString());
+                MessageBox.Show($"Hittades på position {i.ToString()}");
             }
             else
             {

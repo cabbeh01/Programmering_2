@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DynamicList
 {
-    abstract class Samling<T>
+    public class Samling<T>
     {
         protected int buffert;
         protected T[] lista;
@@ -51,7 +51,7 @@ namespace DynamicList
             längd = antal;
         }
 
-        public virtual void Läggtill(T e)
+        public void Läggtill(T e)
         {
             if(antal + 1 > längd)
             {

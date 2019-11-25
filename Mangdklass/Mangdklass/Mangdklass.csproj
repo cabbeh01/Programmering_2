@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33B069FC-F606-47B6-B994-7F3DD1BD8BE3}</ProjectGuid>
+    <ProjectGuid>{A469EB59-EB29-4375-A122-209E0436D147}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DynamicList</RootNamespace>
-    <AssemblyName>DynamicList</AssemblyName>
+    <RootNamespace>Mangdklass</RootNamespace>
+    <AssemblyName>Mangdklass</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -55,11 +55,6 @@
     <Compile Include="Mangd.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Samling.cs" />
-    <Compile Include="SorteradMangd.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
