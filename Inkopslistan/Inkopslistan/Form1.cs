@@ -88,17 +88,33 @@ namespace Inkopslistan
             {
                 lbxOut.Items.Add(v);
             }
+
+            double totalpris = 0;
+            foreach(Vara v in Vara.varukorg)
+            {
+                totalpris += v.BeräknaPris();
+            }
+            tbxSumma.Text = totalpris.ToString();
+
+            
         }
 
         private void BtnRadera_Click(object sender, EventArgs e)
         {
+            Vara.varukorg.RemoveAt(lbxOut.SelectedIndex);
+            UpdateList();
             lbxOut.ClearSelected();
-            Vara.varukorg.Remove(lbxOut.SelectedItem as Vara);
+            btnRadera.Enabled = false;
         }
 
         private void LbxOut_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!(lbxOut.Items.Count == 0))
+            
+            if (lbxOut.SelectedIndex == -1)
+            {
+                btnRadera.Enabled = false;
+            }
+            else
             {
                 btnRadera.Enabled = true;
             }
