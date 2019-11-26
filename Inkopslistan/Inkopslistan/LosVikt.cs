@@ -8,9 +8,17 @@ namespace Inkopslistan
 {
     class LosVikt : Vara
     {
+        /// <summary>Kilo priset på en vara</summary>
         protected double _kiloPris;
+        /// <summary>Vikten på en vara</summary>
         protected double _vikt;
 
+
+        /// <summary>Konstruktorn för Lösvikt</summary>
+
+        /// <param name="name">Namnet på varan</param>
+        /// <param name="pris">Priset på varan</param>
+        /// <param name="vikt">Vikten utav varan</param>
         public LosVikt(string name, double pris, double vikt) : base(name)
         {
             this._kiloPris = pris;
