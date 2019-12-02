@@ -44,5 +44,33 @@ namespace Dialoger
             }
             
         }
+
+        private void VäljFärgToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult r = dlgColor.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                btnColor.BackColor = dlgColor.Color;
+            }
+        }
+
+        private void VäljMappToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult r = dlgFolderbrowser.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                btnFolder.Text = dlgFolderbrowser.SelectedPath;
+            }
+        }
+
+        private void VäljTeckensnittToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult r = dlgFont.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                btnFont.Font = dlgFont.Font;
+            }
+            
+        }
     }
 }
