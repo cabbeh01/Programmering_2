@@ -72,5 +72,10 @@ namespace Dialoger
             }
             
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
