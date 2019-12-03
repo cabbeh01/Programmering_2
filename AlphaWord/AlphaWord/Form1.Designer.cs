@@ -28,69 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.rtbxText = new System.Windows.Forms.RichTextBox();
+            this.btnFont = new System.Windows.Forms.Button();
+            this.btnAlignleft = new System.Windows.Forms.Button();
+            this.btnAlignmiddle = new System.Windows.Forms.Button();
+            this.btnAlignRight = new System.Windows.Forms.Button();
             this.dlgColor = new System.Windows.Forms.ColorDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxColor = new System.Windows.Forms.PictureBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.dlgPrint = new System.Windows.Forms.PrintDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.dlgPrintDocument = new System.Drawing.Printing.PrintDocument();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxColor)).BeginInit();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // rtbxText
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 51);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 387);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbxText.Location = new System.Drawing.Point(12, 51);
+            this.rtbxText.Name = "rtbxText";
+            this.rtbxText.Size = new System.Drawing.Size(776, 387);
+            this.rtbxText.TabIndex = 0;
+            this.rtbxText.Text = "";
             // 
-            // button1
+            // btnFont
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFont.Location = new System.Drawing.Point(12, 12);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(75, 23);
+            this.btnFont.TabIndex = 1;
+            this.btnFont.Text = "button1";
+            this.btnFont.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAlignleft
             // 
-            this.button2.Location = new System.Drawing.Point(112, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAlignleft.Location = new System.Drawing.Point(112, 12);
+            this.btnAlignleft.Name = "btnAlignleft";
+            this.btnAlignleft.Size = new System.Drawing.Size(36, 23);
+            this.btnAlignleft.TabIndex = 2;
+            this.btnAlignleft.Text = "button2";
+            this.btnAlignleft.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAlignmiddle
             // 
-            this.button3.Location = new System.Drawing.Point(154, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAlignmiddle.Location = new System.Drawing.Point(154, 12);
+            this.btnAlignmiddle.Name = "btnAlignmiddle";
+            this.btnAlignmiddle.Size = new System.Drawing.Size(36, 23);
+            this.btnAlignmiddle.TabIndex = 3;
+            this.btnAlignmiddle.Text = "button3";
+            this.btnAlignmiddle.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAlignRight
             // 
-            this.button4.Location = new System.Drawing.Point(196, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAlignRight.Location = new System.Drawing.Point(196, 12);
+            this.btnAlignRight.Name = "btnAlignRight";
+            this.btnAlignRight.Size = new System.Drawing.Size(36, 23);
+            this.btnAlignRight.TabIndex = 4;
+            this.btnAlignRight.Text = "button4";
+            this.btnAlignRight.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pbxColor
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(248, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 22);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pbxColor.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pbxColor.Location = new System.Drawing.Point(248, 12);
+            this.pbxColor.Name = "pbxColor";
+            this.pbxColor.Size = new System.Drawing.Size(30, 22);
+            this.pbxColor.TabIndex = 5;
+            this.pbxColor.TabStop = false;
+            this.pbxColor.Click += new System.EventHandler(this.PbxColor_Click);
             // 
             // btnPrint
             // 
@@ -106,36 +109,41 @@
             // 
             this.dlgPrint.UseEXDialog = true;
             // 
+            // dlgPrintDocument
+            // 
+            this.dlgPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.DlgPrintDocument_PrintPage);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.pbxColor);
+            this.Controls.Add(this.btnAlignRight);
+            this.Controls.Add(this.btnAlignmiddle);
+            this.Controls.Add(this.btnAlignleft);
+            this.Controls.Add(this.btnFont);
+            this.Controls.Add(this.rtbxText);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxColor)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox rtbxText;
+        private System.Windows.Forms.Button btnFont;
+        private System.Windows.Forms.Button btnAlignleft;
+        private System.Windows.Forms.Button btnAlignmiddle;
+        private System.Windows.Forms.Button btnAlignRight;
         private System.Windows.Forms.ColorDialog dlgColor;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxColor;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.PrintDialog dlgPrint;
+        private System.Drawing.Printing.PrintDocument dlgPrintDocument;
     }
 }
 
