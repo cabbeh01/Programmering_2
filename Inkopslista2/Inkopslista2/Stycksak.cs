@@ -29,6 +29,18 @@ namespace Inkopslista2
             }
         }
 
+        public int Antal
+        {
+            get
+            {
+                return _antal;
+            }
+            set
+            {
+                this._antal = value;
+            }
+        }
+
         public override double Beräknapris()
         {
             return this._styckPris*this._antal;

@@ -81,6 +81,7 @@ namespace Inkopslista2
             {
                 lbxOut.Items.Add(v);
             }
+            CalculateSumma();
         }
 
         private void LbxOut_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,15 +99,40 @@ namespace Inkopslista2
 
         private void BtnRemove_Click(object sender, EventArgs e)
         {
-            Vara.Varukorg.RemoveAt(lbxOut.SelectedIndex);
-            UpdateList();
-            Checkitemsinlist();
+            if(!(lbxOut.SelectedIndex == -1))
+            {
+                Vara.Varukorg.RemoveAt(lbxOut.SelectedIndex);
+                UpdateList();
+                Checkitemsinlist();
+            }
+            
         }
 
         private void BtnChange_Click(object sender, EventArgs e)
         {
-            Change a = new Change();
-            a.Show();
+            try
+            {
+                int id = lbxOut.SelectedIndex;
+                Change a = new Change(id, Vara.Varukorg[id]);
+                this.Enabled = false;
+                DialogResult r = a.ShowDialog();
+                if (r == DialogResult.OK)
+                {
+                    UpdateList();
+                    this.Enabled = true;
+                    gbxModify.Enabled = false;
+                }
+                else if (r == DialogResult.Cancel)
+                {
+                    this.Enabled = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Du måste välja ett objekt i listan");
+            }
+            
+            
         }
 
         public void Checkitemsinlist()
@@ -119,6 +145,33 @@ namespace Inkopslista2
             {
                 gbxModify.Enabled = false;
             }
+        }
+
+        private void CalculateSumma()
+        {
+            double summa = 0;
+            foreach(Vara v in Vara.Varukorg)
+            {
+                summa += v.Beräknapris();
+            }
+            if (!string.IsNullOrEmpty(tbxRabatt.Text))
+            {
+                try
+                {
+                    summa -= double.Parse(tbxRabatt.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Du måste mata in en rabatt som fungerar");
+                }
+            }
+
+            tbxSumma.Text = summa.ToString();
+        }
+
+        private void tbxRabatt_TextChanged(object sender, EventArgs e)
+        {
+            CalculateSumma();
         }
     }
 }

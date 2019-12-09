@@ -35,8 +35,8 @@
             this.tbxMangd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtnLosvikt = new System.Windows.Forms.RadioButton();
             this.rbtnStycksaker = new System.Windows.Forms.RadioButton();
+            this.rbtnLosvikt = new System.Windows.Forms.RadioButton();
             this.lbxOut = new System.Windows.Forms.ListBox();
             this.tbxRabatt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -109,6 +109,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Varutyp";
             // 
+            // rbtnStycksaker
+            // 
+            this.rbtnStycksaker.AutoSize = true;
+            this.rbtnStycksaker.Location = new System.Drawing.Point(9, 54);
+            this.rbtnStycksaker.Name = "rbtnStycksaker";
+            this.rbtnStycksaker.Size = new System.Drawing.Size(78, 17);
+            this.rbtnStycksaker.TabIndex = 1;
+            this.rbtnStycksaker.Text = "Stycksaker";
+            this.rbtnStycksaker.UseVisualStyleBackColor = true;
+            // 
             // rbtnLosvikt
             // 
             this.rbtnLosvikt.AutoSize = true;
@@ -120,16 +130,6 @@
             this.rbtnLosvikt.TabStop = true;
             this.rbtnLosvikt.Text = "Lösvikt";
             this.rbtnLosvikt.UseVisualStyleBackColor = true;
-            // 
-            // rbtnStycksaker
-            // 
-            this.rbtnStycksaker.AutoSize = true;
-            this.rbtnStycksaker.Location = new System.Drawing.Point(9, 54);
-            this.rbtnStycksaker.Name = "rbtnStycksaker";
-            this.rbtnStycksaker.Size = new System.Drawing.Size(78, 17);
-            this.rbtnStycksaker.TabIndex = 1;
-            this.rbtnStycksaker.Text = "Stycksaker";
-            this.rbtnStycksaker.UseVisualStyleBackColor = true;
             // 
             // lbxOut
             // 
@@ -146,6 +146,7 @@
             this.tbxRabatt.Name = "tbxRabatt";
             this.tbxRabatt.Size = new System.Drawing.Size(100, 20);
             this.tbxRabatt.TabIndex = 8;
+            this.tbxRabatt.TextChanged += new System.EventHandler(this.tbxRabatt_TextChanged);
             // 
             // label4
             // 
