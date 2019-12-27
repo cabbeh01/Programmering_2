@@ -38,6 +38,7 @@
             this.btnPrint = new System.Windows.Forms.Button();
             this.dlgPrint = new System.Windows.Forms.PrintDialog();
             this.dlgPrintDocument = new System.Drawing.Printing.PrintDocument();
+            this.dlgFont = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbxColor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,8 +56,9 @@
             this.btnFont.Name = "btnFont";
             this.btnFont.Size = new System.Drawing.Size(75, 23);
             this.btnFont.TabIndex = 1;
-            this.btnFont.Text = "button1";
+            this.btnFont.Text = "Typsnitt";
             this.btnFont.UseVisualStyleBackColor = true;
+            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
             // 
             // btnAlignleft
             // 
@@ -64,8 +66,9 @@
             this.btnAlignleft.Name = "btnAlignleft";
             this.btnAlignleft.Size = new System.Drawing.Size(36, 23);
             this.btnAlignleft.TabIndex = 2;
-            this.btnAlignleft.Text = "button2";
+            this.btnAlignleft.Text = "L";
             this.btnAlignleft.UseVisualStyleBackColor = true;
+            this.btnAlignleft.Click += new System.EventHandler(this.btnAlignleft_Click);
             // 
             // btnAlignmiddle
             // 
@@ -73,8 +76,9 @@
             this.btnAlignmiddle.Name = "btnAlignmiddle";
             this.btnAlignmiddle.Size = new System.Drawing.Size(36, 23);
             this.btnAlignmiddle.TabIndex = 3;
-            this.btnAlignmiddle.Text = "button3";
+            this.btnAlignmiddle.Text = "C";
             this.btnAlignmiddle.UseVisualStyleBackColor = true;
+            this.btnAlignmiddle.Click += new System.EventHandler(this.btnAlignmiddle_Click);
             // 
             // btnAlignRight
             // 
@@ -82,8 +86,9 @@
             this.btnAlignRight.Name = "btnAlignRight";
             this.btnAlignRight.Size = new System.Drawing.Size(36, 23);
             this.btnAlignRight.TabIndex = 4;
-            this.btnAlignRight.Text = "button4";
+            this.btnAlignRight.Text = "R";
             this.btnAlignRight.UseVisualStyleBackColor = true;
+            this.btnAlignRight.Click += new System.EventHandler(this.btnAlignRight_Click);
             // 
             // pbxColor
             // 
@@ -144,6 +149,7 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.PrintDialog dlgPrint;
         private System.Drawing.Printing.PrintDocument dlgPrintDocument;
+        private System.Windows.Forms.FontDialog dlgFont;
     }
 }
 

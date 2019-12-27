@@ -54,5 +54,32 @@ namespace AlphaWord
             //e.Graphics.FillRectangle(new SolidBrush(Color.Black), 20, 20, 100, 1000);
             e.Graphics.DrawString(a, new Font("Times New Roman", 10), new SolidBrush(Color.Black),200,500);
         }
+
+        private void btnAlignleft_Click(object sender, EventArgs e)
+        {
+            HorizontalAlignment a = HorizontalAlignment.Left;
+            rtbxText.SelectionAlignment = a;
+        }
+
+        private void btnAlignmiddle_Click(object sender, EventArgs e)
+        {
+            HorizontalAlignment a = HorizontalAlignment.Center;
+            rtbxText.SelectionAlignment = a;
+        }
+
+        private void btnAlignRight_Click(object sender, EventArgs e)
+        {
+            HorizontalAlignment a = HorizontalAlignment.Right;
+            rtbxText.SelectionAlignment = a;
+        }
+
+        private void btnFont_Click(object sender, EventArgs e)
+        {
+            DialogResult r = dlgFont.ShowDialog();
+            if(r == DialogResult.OK)
+            {
+                rtbxText.SelectionFont = dlgFont.Font;
+            }
+        }
     }
 }
