@@ -80,6 +80,11 @@ namespace Datagridview
             Match a = e.Row.Tag as Match;
             matcher.Remove(a);
         }
+
+        private void btnStorstMålskillnad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Match

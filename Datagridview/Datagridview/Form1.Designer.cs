@@ -37,6 +37,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbxInput = new System.Windows.Forms.TextBox();
             this.btnMålrikast = new System.Windows.Forms.Button();
+            this.btnStorstMålskillnad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnStorstMålskillnad);
             this.panel2.Controls.Add(this.tbxInput);
             this.panel2.Controls.Add(this.btnMålrikast);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -104,7 +106,7 @@
             // 
             // tbxInput
             // 
-            this.tbxInput.Location = new System.Drawing.Point(151, 19);
+            this.tbxInput.Location = new System.Drawing.Point(299, 19);
             this.tbxInput.Name = "tbxInput";
             this.tbxInput.Size = new System.Drawing.Size(263, 20);
             this.tbxInput.TabIndex = 1;
@@ -119,6 +121,16 @@
             this.btnMålrikast.Text = "Målrikast";
             this.btnMålrikast.UseVisualStyleBackColor = true;
             this.btnMålrikast.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnStorstMålskillnad
+            // 
+            this.btnStorstMålskillnad.Location = new System.Drawing.Point(151, 3);
+            this.btnStorstMålskillnad.Name = "btnStorstMålskillnad";
+            this.btnStorstMålskillnad.Size = new System.Drawing.Size(142, 51);
+            this.btnStorstMålskillnad.TabIndex = 2;
+            this.btnStorstMålskillnad.Text = "Störst målskillnad";
+            this.btnStorstMålskillnad.UseVisualStyleBackColor = true;
+            this.btnStorstMålskillnad.Click += new System.EventHandler(this.btnStorstMålskillnad_Click);
             // 
             // Form1
             // 
@@ -149,6 +161,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colBortalag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMålHemma;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMålBorta;
+        private System.Windows.Forms.Button btnStorstMålskillnad;
     }
 }
 
