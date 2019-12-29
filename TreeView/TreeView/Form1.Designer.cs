@@ -32,16 +32,16 @@
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Bataljon");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tvwBataljon = new System.Windows.Forms.TreeView();
+            this.icons = new System.Windows.Forms.ImageList(this.components);
             this.gbxNyenhet = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbxName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxSoldates = new System.Windows.Forms.TextBox();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbxName = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbxInfo = new System.Windows.Forms.TextBox();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.icons = new System.Windows.Forms.ImageList(this.components);
             this.gbxNyenhet.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +62,15 @@
             this.tvwBataljon.TabIndex = 0;
             this.tvwBataljon.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwBataljon_AfterSelect);
             // 
+            // icons
+            // 
+            this.icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("icons.ImageStream")));
+            this.icons.TransparentColor = System.Drawing.Color.Transparent;
+            this.icons.Images.SetKeyName(0, "Bataljon.png");
+            this.icons.Images.SetKeyName(1, "Kompani.png");
+            this.icons.Images.SetKeyName(2, "Pluton.png");
+            this.icons.Images.SetKeyName(3, "Grupp.png");
+            // 
             // gbxNyenhet
             // 
             this.gbxNyenhet.Controls.Add(this.btnRemove);
@@ -77,31 +86,25 @@
             this.gbxNyenhet.TabStop = false;
             this.gbxNyenhet.Text = "Lägg till ny enhet";
             // 
-            // groupBox2
+            // btnRemove
             // 
-            this.groupBox2.Controls.Add(this.tbxInfo);
-            this.groupBox2.Location = new System.Drawing.Point(252, 161);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(243, 111);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Information om vald enhet";
+            this.btnRemove.Location = new System.Drawing.Point(56, 113);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(100, 23);
+            this.btnRemove.TabIndex = 5;
+            this.btnRemove.Text = "Radera enhet";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // tbxName
+            // btnNew
             // 
-            this.tbxName.Location = new System.Drawing.Point(105, 28);
-            this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(132, 20);
-            this.tbxName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Namn:";
+            this.btnNew.Location = new System.Drawing.Point(162, 113);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "Ny enhet";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // label2
             // 
@@ -119,15 +122,31 @@
             this.tbxSoldates.Size = new System.Drawing.Size(132, 20);
             this.tbxSoldates.TabIndex = 2;
             // 
-            // btnNew
+            // label1
             // 
-            this.btnNew.Location = new System.Drawing.Point(162, 113);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "Ny enhet";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Namn:";
+            // 
+            // tbxName
+            // 
+            this.tbxName.Location = new System.Drawing.Point(105, 28);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(132, 20);
+            this.tbxName.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbxInfo);
+            this.groupBox2.Location = new System.Drawing.Point(252, 161);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(243, 111);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Information om vald enhet";
             // 
             // tbxInfo
             // 
@@ -137,25 +156,6 @@
             this.tbxInfo.ReadOnly = true;
             this.tbxInfo.Size = new System.Drawing.Size(229, 85);
             this.tbxInfo.TabIndex = 0;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Location = new System.Drawing.Point(56, 113);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(100, 23);
-            this.btnRemove.TabIndex = 5;
-            this.btnRemove.Text = "Radera enhet";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // icons
-            // 
-            this.icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("icons.ImageStream")));
-            this.icons.TransparentColor = System.Drawing.Color.Transparent;
-            this.icons.Images.SetKeyName(0, "Bataljon.png");
-            this.icons.Images.SetKeyName(1, "Kompani.png");
-            this.icons.Images.SetKeyName(2, "Pluton.png");
-            this.icons.Images.SetKeyName(3, "Grupp.png");
             // 
             // Form1
             // 
