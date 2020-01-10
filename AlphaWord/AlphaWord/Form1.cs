@@ -15,9 +15,15 @@ namespace AlphaWord
     public partial class Form1 : Form
     {
         string a;
+        string markering;
         public Form1()
         {
             InitializeComponent();
+            for(int i = 0; i < FontFamily.Families.Length; i++)
+            {
+                cbxFonts.Items.Add(FontFamily.Families[i].Name);
+                cbxFonts.SelectedItem = "Times New Roman";
+            }
         }
 
         private void BtnPrint_Click(object sender, EventArgs e)
@@ -73,13 +79,60 @@ namespace AlphaWord
             rtbxText.SelectionAlignment = a;
         }
 
-        private void btnFont_Click(object sender, EventArgs e)
+        private void btnFet_Click(object sender, EventArgs e)
         {
-            DialogResult r = dlgFont.ShowDialog();
-            if(r == DialogResult.OK)
+
+        }
+
+        private void btnKursiv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUnder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nUD_ValueChanged(object sender, EventArgs e)
+        {
+            if(nUD.Value < 8)
             {
-                rtbxText.SelectionFont = dlgFont.Font;
+                nUD.Value++;
             }
+            else if(nUD.Value > 72)
+            {
+                nUD.Value--;
+            }
+
+            try
+            {
+                rtbxText.SelectedText = markering;
+                rtbxText.SelectionFont = new Font(cbxFonts.SelectedText, (int)nUD.Value);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void cbxFonts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                rtbxText.SelectedText = markering;
+                rtbxText.SelectionFont = new Font(cbxFonts.SelectedText, (int)nUD.Value);
+                
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void rtbxText_TextChanged(object sender, EventArgs e)
+        {
+            markering = rtbxText.SelectedText;
         }
     }
 }
