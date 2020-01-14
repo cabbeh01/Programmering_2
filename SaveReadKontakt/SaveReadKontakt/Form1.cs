@@ -19,50 +19,6 @@ namespace SaveReadKontakt
             InitializeExtenstions();
         }
 
-        private void BtnOpen_Click(object sender, EventArgs e)
-        {
-            DialogResult result = dlgOpenFile.ShowDialog();
-
-            if(result == DialogResult.OK)
-            {
-                FileStream inStream = new FileStream(dlgOpenFile.FileName, FileMode.Open, FileAccess.Read);
-
-                StreamReader stream = new StreamReader(inStream);
-                string firstname = stream.ReadLine();
-                string lastname = stream.ReadLine();
-                string email = stream.ReadLine();
-                string phonenumber = stream.ReadLine();
-                tbxFirstname.Text = firstname;
-                tbxLastname.Text = lastname;
-                tbxEmail.Text = email;
-                tbxPhonenumber.Text = phonenumber;
-                stream.Dispose();
-            }
-        }
-
-        private void BtnSaveAs_Click(object sender, EventArgs e)
-        {
-            DialogResult result = dlgSaveFile.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                FileStream outStream = new FileStream(dlgSaveFile.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-                
-                StreamWriter stream = new StreamWriter(outStream);
-                string firstname = tbxFirstname.Text;
-                string lastname = tbxLastname.Text;
-                string email = tbxEmail.Text;
-                string phonenumber = tbxPhonenumber.Text;
-
-                stream.WriteLine(firstname);
-                stream.WriteLine(lastname);
-                stream.WriteLine(email);
-                stream.WriteLine(phonenumber);
-
-                stream.Dispose();
-            }
-        }
-
         void InitializeExtenstions()
         {
             dlgSaveFile.Filter = "Kontakt filer (*.kon*)|*.kon*";
@@ -80,6 +36,83 @@ namespace SaveReadKontakt
             tbxLastname.Clear();
             tbxEmail.Clear();
             tbxPhonenumber.Clear();
+        }
+
+        private void ÖppnaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = dlgOpenFile.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                FileStream inStream = new FileStream(dlgOpenFile.FileName, FileMode.Open, FileAccess.Read);
+
+                StreamReader stream = new StreamReader(inStream);
+
+                lbxOut.Items.Clear();
+                string firstname = stream.ReadLine();
+                while (!(string.IsNullOrEmpty(firstname)))
+                {
+                    Kontakt k = new Kontakt(firstname, stream.ReadLine(), stream.ReadLine(), stream.ReadLine());
+                    lbxOut.Items.Add(k);
+
+                    firstname = stream.ReadLine();
+                }
+
+                stream.Dispose();
+
+            }
+        }
+
+        private void SparaSomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = dlgSaveFile.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                FileStream outStream = new FileStream(dlgSaveFile.FileName, FileMode.OpenOrCreate, FileAccess.Write);
+
+                StreamWriter stream = new StreamWriter(outStream);
+
+                foreach (Kontakt k in lbxOut.Items)
+                {
+                    stream.WriteLine(k.Firstname);
+                    stream.WriteLine(k.Lastname);
+                    stream.WriteLine(k.Email);
+                    stream.WriteLine(k.Phonenumber);
+                }
+                stream.Dispose();
+            }
+        }
+
+        private void LäggTillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Kontakt a = new Kontakt(tbxFirstname.Text, tbxLastname.Text, tbxEmail.Text, tbxPhonenumber.Text);
+
+            lbxOut.Items.Add(a);
+            ClearTextboxes();
+        }
+
+        private void TaBortToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbxOut.Items.Remove(lbxOut.SelectedItem);
+            ClearTextboxes();
+        }
+
+        private void LbxOut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Kontakt k = (Kontakt)lbxOut.SelectedItem;
+
+                tbxFirstname.Text = k.Firstname;
+                tbxLastname.Text = k.Lastname;
+                tbxEmail.Text = k.Email;
+                tbxPhonenumber.Text = k.Phonenumber;
+            }
+            catch
+            {
+                
+            }
         }
     }
 }

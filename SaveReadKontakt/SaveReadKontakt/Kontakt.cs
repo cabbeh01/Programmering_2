@@ -25,5 +25,50 @@ namespace SaveReadKontakt
         {
             return $"{this._firstname} {this._lastname}";
         }
+
+        public string Firstname
+        {
+            get
+            {
+                return _firstname;
+            }
+            set
+            {
+                _firstname = value;
+            }
+        }
+        public string Lastname
+        {
+            get
+            {
+                return _lastname;
+            }
+            set
+            {
+                _lastname = value;
+            }
+        }
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                _email = value;
+            }
+        }
+        public string Phonenumber
+        {
+            get
+            {
+                return _phonenumber;
+            }
+            set
+            {
+                _phonenumber = value;
+            }
+        }
     }
 }

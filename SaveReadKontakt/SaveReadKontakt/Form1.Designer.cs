@@ -36,19 +36,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbxPhonenumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnOpen = new System.Windows.Forms.Button();
-            this.btnSaveAs = new System.Windows.Forms.Button();
             this.dlgOpenFile = new System.Windows.Forms.OpenFileDialog();
             this.dlgSaveFile = new System.Windows.Forms.SaveFileDialog();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbxOut = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arkivToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.öppnaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sparaSomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redigeraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.läggTillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taBortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.öppnaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sparaSomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,33 +113,14 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Telefonnummer";
             // 
-            // btnOpen
+            // lbxOut
             // 
-            this.btnOpen.Location = new System.Drawing.Point(243, 177);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 8;
-            this.btnOpen.Text = "Öppna";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
-            // 
-            // btnSaveAs
-            // 
-            this.btnSaveAs.Location = new System.Drawing.Point(324, 177);
-            this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveAs.TabIndex = 9;
-            this.btnSaveAs.Text = "Spara som";
-            this.btnSaveAs.UseVisualStyleBackColor = true;
-            this.btnSaveAs.Click += new System.EventHandler(this.BtnSaveAs_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(246, 47);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(153, 95);
-            this.listBox1.TabIndex = 10;
+            this.lbxOut.FormattingEnabled = true;
+            this.lbxOut.Location = new System.Drawing.Point(246, 47);
+            this.lbxOut.Name = "lbxOut";
+            this.lbxOut.Size = new System.Drawing.Size(153, 95);
+            this.lbxOut.TabIndex = 10;
+            this.lbxOut.SelectedIndexChanged += new System.EventHandler(this.LbxOut_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -159,11 +137,24 @@
             // 
             this.arkivToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.öppnaToolStripMenuItem,
-            this.toolStripTextBox1,
             this.sparaSomToolStripMenuItem});
             this.arkivToolStripMenuItem.Name = "arkivToolStripMenuItem";
             this.arkivToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.arkivToolStripMenuItem.Text = "Arkiv";
+            // 
+            // öppnaToolStripMenuItem
+            // 
+            this.öppnaToolStripMenuItem.Name = "öppnaToolStripMenuItem";
+            this.öppnaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.öppnaToolStripMenuItem.Text = "Öppna";
+            this.öppnaToolStripMenuItem.Click += new System.EventHandler(this.ÖppnaToolStripMenuItem_Click);
+            // 
+            // sparaSomToolStripMenuItem
+            // 
+            this.sparaSomToolStripMenuItem.Name = "sparaSomToolStripMenuItem";
+            this.sparaSomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sparaSomToolStripMenuItem.Text = "Spara som";
+            this.sparaSomToolStripMenuItem.Click += new System.EventHandler(this.SparaSomToolStripMenuItem_Click);
             // 
             // redigeraToolStripMenuItem
             // 
@@ -179,39 +170,21 @@
             this.läggTillToolStripMenuItem.Name = "läggTillToolStripMenuItem";
             this.läggTillToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.läggTillToolStripMenuItem.Text = "Lägg till";
+            this.läggTillToolStripMenuItem.Click += new System.EventHandler(this.LäggTillToolStripMenuItem_Click);
             // 
             // taBortToolStripMenuItem
             // 
             this.taBortToolStripMenuItem.Name = "taBortToolStripMenuItem";
             this.taBortToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.taBortToolStripMenuItem.Text = "Ta bort";
-            // 
-            // öppnaToolStripMenuItem
-            // 
-            this.öppnaToolStripMenuItem.Name = "öppnaToolStripMenuItem";
-            this.öppnaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.öppnaToolStripMenuItem.Text = "Öppna";
-            // 
-            // sparaSomToolStripMenuItem
-            // 
-            this.sparaSomToolStripMenuItem.Name = "sparaSomToolStripMenuItem";
-            this.sparaSomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sparaSomToolStripMenuItem.Text = "Spara som";
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.taBortToolStripMenuItem.Click += new System.EventHandler(this.TaBortToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 212);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.btnSaveAs);
-            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.lbxOut);
             this.Controls.Add(this.tbxPhonenumber);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbxEmail);
@@ -241,15 +214,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxPhonenumber;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.Button btnSaveAs;
         private System.Windows.Forms.OpenFileDialog dlgOpenFile;
         private System.Windows.Forms.SaveFileDialog dlgSaveFile;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbxOut;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem arkivToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem öppnaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem sparaSomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redigeraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem läggTillToolStripMenuItem;
