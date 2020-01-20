@@ -73,12 +73,14 @@
             this.öppnaToolStripMenuItem.Name = "öppnaToolStripMenuItem";
             this.öppnaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.öppnaToolStripMenuItem.Text = "Öppna";
+            this.öppnaToolStripMenuItem.Click += new System.EventHandler(this.ÖppnaToolStripMenuItem_Click);
             // 
             // sparaSomToolStripMenuItem
             // 
             this.sparaSomToolStripMenuItem.Name = "sparaSomToolStripMenuItem";
             this.sparaSomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sparaSomToolStripMenuItem.Text = "Spara som...";
+            this.sparaSomToolStripMenuItem.Click += new System.EventHandler(this.SparaSomToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -136,6 +138,7 @@
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Lägg till";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // dgView
             // 
