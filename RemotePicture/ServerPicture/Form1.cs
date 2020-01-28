@@ -68,36 +68,48 @@ namespace ServerPicture
             string s = Encoding.Unicode.GetString(buffert, 0, n);
             switch (s) {
                 case "1":
-                    if(pBox.Location.Y == 0)
+                    if(pBox.Location.Y <= 0)
                     {
-                        StartSend("btnUP");
-                        break;
+                        StartSend("1000");
+                    }
+                    else
+                    {
+                        StartSend("0000");
                     }
                     pBox.Location = new Point(pBox.Location.X, pBox.Location.Y - 10);
                     break;
 
                 case "-1":
-                    if (pBox.Location.Y == 350)
+                    if (pBox.Location.Y <= 350)
                     {
-                        StartSend("btnDown");
-                        break;
+                        StartSend("0100");
+                    }
+                    else
+                    {
+                        StartSend("0000");
                     }
                     pBox.Location = new Point(pBox.Location.X, pBox.Location.Y + 10);
                     break;
 
                 case "2":
-                    if (pBox.Location.X == 0)
+                    if (pBox.Location.X <= 0)
                     {
-                        StartSend("btnLeft");
-                        break;
+                        StartSend("0010");
+                    }
+                    else
+                    {
+                        StartSend("0000");
                     }
                     pBox.Location = new Point(pBox.Location.X + 10, pBox.Location.Y);
                     break;
                 case "-2":
-                    if (pBox.Location.X == 700)
+                    if (pBox.Location.X <= 700)
                     {
-                        StartSend("btnRight");
-                        break;
+                        StartSend("0001");
+                    }
+                    else
+                    {
+                        StartSend("0000");
                     }
                     pBox.Location = new Point(pBox.Location.X - 10, pBox.Location.Y);
                     break;

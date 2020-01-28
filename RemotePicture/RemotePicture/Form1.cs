@@ -14,7 +14,7 @@ namespace RemotePicture
 {
     public partial class Form1 : Form
     {
-        TcpListener listener;
+        
         TcpClient client = new TcpClient();
         int port = 3333;
 
@@ -64,20 +64,10 @@ namespace RemotePicture
                 MessageBox.Show(ex.Message);
             }
             btnConnect.Enabled = false;
-        }
-
-        private async void StartListening()
-        {
-            try
-            {
-                client = await listener.AcceptTcpClientAsync();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
             StartReading(client);
         }
+
+        
         private async void StartReading(TcpClient k)
         {
             byte[] buffert = new byte[1024];
@@ -95,52 +85,10 @@ namespace RemotePicture
 
             string s = Encoding.Unicode.GetString(buffert, 0, n);
            
-            if(s == "btnUp")
-            {
-                if (btnUp.Enabled)
-                {
-                    btnUp.Enabled = false;
-                }
-                else
-                {
-                    btnUp.Enabled = true;
-                }
-                
-            }
-            else if (s == "btnDown")
-            {
-                if (btnDown.Enabled)
-                {
-                    btnDown.Enabled = false;
-                }
-                else
-                {
-                    btnDown.Enabled = true;
-                }
-            }
-            else if (s == "btnLeft")
-            {
-                if (btnLeft.Enabled)
-                {
-                    btnLeft.Enabled = false;
-                }
-                else
-                {
-                    btnLeft.Enabled = true;
-                }
-            }
-            else if (s == "btnRight")
-            {
-                if (btnRight.Enabled)
-                {
-                    btnRight.Enabled = false;
-                }
-                else
-                {
-                    btnRight.Enabled = true;
-                }
-            }
+            
             StartReading(client);
+
+            CheckIfClickPossible(s);
         }
 
 
@@ -155,6 +103,58 @@ namespace RemotePicture
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void CheckIfClickPossible(string nr)
+        {
+            for(int i = 0; i<4; i++)
+            {
+                if(i == 0)
+                {
+                    if (nr[i] == '1')
+                    {
+                        btnUp.Enabled = false;
+                    }
+                    else
+                    {
+                        btnUp.Enabled = true;
+                    }
+                }
+                else if(i == 1)
+                {
+                    if (nr[i] == '1')
+                    {
+                        btnDown.Enabled = false;
+                    }
+                    else
+                    {
+                        btnDown.Enabled = true;
+                    }
+                }
+                else if (i == 2)
+                {
+                    if (nr[i] == '1')
+                    {
+                        btnLeft.Enabled = false;
+                    }
+                    else
+                    {
+                        btnLeft.Enabled = true;
+                    }
+                }
+                else if (i == 3)
+                {
+                    if (nr[i] == '1')
+                    {
+                        btnRight.Enabled = false;
+                    }
+                    else
+                    {
+                        btnRight.Enabled = true;
+                    }
+                }
             }
         }
     }
