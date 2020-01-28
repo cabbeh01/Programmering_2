@@ -35,7 +35,7 @@
             // pBox
             // 
             this.pBox.Image = global::ServerPicture.Properties.Resources.plane;
-            this.pBox.Location = new System.Drawing.Point(228, 108);
+            this.pBox.Location = new System.Drawing.Point(200, 100);
             this.pBox.Name = "pBox";
             this.pBox.Size = new System.Drawing.Size(100, 100);
             this.pBox.TabIndex = 0;

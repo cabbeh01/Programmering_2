@@ -68,17 +68,37 @@ namespace ServerPicture
             string s = Encoding.Unicode.GetString(buffert, 0, n);
             switch (s) {
                 case "1":
+                    if(pBox.Location.Y == 0)
+                    {
+                        StartSend("btnUP");
+                        break;
+                    }
                     pBox.Location = new Point(pBox.Location.X, pBox.Location.Y - 10);
                     break;
 
                 case "-1":
+                    if (pBox.Location.Y == 350)
+                    {
+                        StartSend("btnDown");
+                        break;
+                    }
                     pBox.Location = new Point(pBox.Location.X, pBox.Location.Y + 10);
                     break;
 
                 case "2":
+                    if (pBox.Location.X == 0)
+                    {
+                        StartSend("btnLeft");
+                        break;
+                    }
                     pBox.Location = new Point(pBox.Location.X + 10, pBox.Location.Y);
                     break;
                 case "-2":
+                    if (pBox.Location.X == 700)
+                    {
+                        StartSend("btnRight");
+                        break;
+                    }
                     pBox.Location = new Point(pBox.Location.X - 10, pBox.Location.Y);
                     break;
 
@@ -90,6 +110,19 @@ namespace ServerPicture
             StartReading(client);
         }
 
+
+        private async void StartSend(string message)
+        {
+            byte[] outData = Encoding.Unicode.GetBytes(message);
+            try
+            {
+                await client.GetStream().WriteAsync(outData, 0, outData.Length);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
     }
 }
