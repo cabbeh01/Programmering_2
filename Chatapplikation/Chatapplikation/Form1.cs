@@ -14,19 +14,17 @@ namespace Chatapplikation
 {
     public partial class Form1 : Form
     {
-        TcpClient client = new TcpClient();
-        int port = 3333;
-
+        User user = new User("","","");
 
         public Form1()
         {
             InitializeComponent();
-            client.NoDelay = true;
+            user.client.NoDelay = true;
         }
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
-            if (!client.Connected)
+            if (!user.client.Connected)
             {
                 StartHandshake();
             }
@@ -37,12 +35,13 @@ namespace Chatapplikation
             try
             {
                 IPAddress adress = IPAddress.Parse(tbxIP.Text);
-                await client.ConnectAsync(adress, int.Parse(tbxPort.Text));
+                await user.client.ConnectAsync(adress, int.Parse(tbxPort.Text));
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, $"Error {ex.HResult}");
             }
+            StartReading();
         }
 
         private void BtnSend_Click(object sender, EventArgs e)
@@ -52,7 +51,41 @@ namespace Chatapplikation
 
         private async void StartSendning(string text)
         {
+            byte[] outData = Encoding.Unicode.GetBytes(text);
 
+            try
+            {
+                await user.client.GetStream().WriteAsync(outData, 0, outData.Length);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+        private async void StartReading()
+        {
+            if (user.client.Connected)
+            {
+                byte[] buffert = new byte[1024];
+
+                int n = 0;
+                try
+                {
+                    n = await user.client.GetStream().ReadAsync(buffert, 0, buffert.Length);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+
+
+                }
+
+                //Sending data back to users
+                tbxChat.AppendText($"User 1> {Encoding.Unicode.GetString(buffert, 0, n)}");
+                StartReading();
+            }
+            
         }
     }
 }
